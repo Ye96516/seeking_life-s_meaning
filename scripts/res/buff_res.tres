@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EntityAttributes" load_steps=2 format=3 uid="uid://cua7nvkrcfjko"]
+
+[ext_resource type="Script" path="res://scripts/res_scripts/EntityAttributes.gd" id="1_giqbl"]
+
+[resource]
+script = ExtResource("1_giqbl")
+attri = {
+"atk": 2.0,
+"gravity": 2.0,
+"health": 2.0,
+"jump_speed": 0.0,
+"max_health": 0.0,
+"name": "buff",
+"walk_speed": 0.0
+}

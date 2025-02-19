@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://lvuy5qanprly"]
+
+[ext_resource type="PackedScene" uid="uid://3di5coilkojd" path="res://scenes/player/player.tscn" id="1_4d7c7"]
+[ext_resource type="Script" path="res://scenes/test/test.gd" id="1_qaheb"]
+[ext_resource type="Texture2D" uid="uid://xwy3g375eghr" path="res://icon.svg" id="1_wga7t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mmi5q"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_qaheb")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(644, 1060)
+shape = SubResource("WorldBoundaryShape2D_mmi5q")
+
+[node name="Icon" type="Sprite2D" parent="Ground"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(538.5, 1127)
+scale = Vector2(11.7891, 1)
+texture = ExtResource("1_wga7t")
+
+[node name="Player" parent="." instance=ExtResource("1_4d7c7")]
+position = Vector2(795, 671)
