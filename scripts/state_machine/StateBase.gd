@@ -7,6 +7,7 @@ var state_machine: StateMachine
 
 ## 进入状态
 func enter() -> void:
+	print(self.name)
 	pass
 
 ## 退出状态

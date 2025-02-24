@@ -1,8 +1,8 @@
-extends Node
-
-class_name StateMachine
+class_name StateMachine extends Node
 
 @export var current_state: StateBase
+var last_state:StateBase
+var blackboard:Dictionary
 
 func _ready() -> void:
 	for child in get_children():
@@ -24,5 +24,6 @@ func change_state(target_state_name: String) -> void:
 		printerr("节点不存在，请检查节点名称是否正确")
 		return
 	current_state.exit()
+	last_state=current_state
 	current_state = target_state
 	current_state.enter()

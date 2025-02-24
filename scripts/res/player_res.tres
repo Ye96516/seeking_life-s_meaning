@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_giqbl")
 attri = {
-"atk": 0.0,
-"gravity": 6.0,
-"health": 6.0,
-"jump_speed": 0.0,
-"max_health": 0.0,
+"atk": 7.0,
+"gravity": 9.8,
+"health": 10.0,
+"jump_speed": -550.0,
+"max_health": 6.0,
 "name": "player",
-"walk_speed": 0.0
+"walk_speed": 250.0
 }
