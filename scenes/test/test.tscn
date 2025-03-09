@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://lvuy5qanprly"]
+[gd_scene load_steps=7 format=3 uid="uid://lvuy5qanprly"]
 
 [ext_resource type="PackedScene" uid="uid://3di5coilkojd" path="res://scenes/player/player.tscn" id="1_4d7c7"]
-[ext_resource type="Script" path="res://scenes/test/test.gd" id="1_qaheb"]
+[ext_resource type="Script" uid="uid://bmqxp6dm6a5d4" path="res://scenes/test/test.gd" id="1_qaheb"]
 [ext_resource type="Texture2D" uid="uid://xwy3g375eghr" path="res://icon.svg" id="1_wga7t"]
+[ext_resource type="PackedScene" uid="uid://bn2vbydqi0f4m" path="res://scenes/spike/spike.tscn" id="4_51e2l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mmi5q"]
 
@@ -31,3 +32,6 @@ shape = SubResource("RectangleShape2D_n4r3x")
 
 [node name="Player" parent="." instance=ExtResource("1_4d7c7")]
 position = Vector2(795, 671)
+
+[node name="Spike" parent="." instance=ExtResource("4_51e2l")]
+position = Vector2(465, 1052)

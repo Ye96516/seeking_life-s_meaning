@@ -7,5 +7,6 @@ class_name EntityAttributes extends Resource
 	"gravity":9.8,
 	"max_health":0.0,
 	"health":0.0,
-	"atk":0.0
+	"atk":0.0,
+	"recoil_force":0.0,
 }

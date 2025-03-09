@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var res:EntityAttributes
 
 var dir:float
+var up_down_dir:float
 var normal_dir:float
 var jump_times:int=0
 var is_slide:bool
@@ -19,12 +20,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	dir= Input.get_axis("move_left", "move_right")
+	up_down_dir=Input.get_axis("move_down","move_up")
 	if dir !=0:
 		normal_dir=dir
 	handle_flip_x()
-
-
-
 		
 	move_and_slide()
 	

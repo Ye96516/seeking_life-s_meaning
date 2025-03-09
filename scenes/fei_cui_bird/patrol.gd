@@ -1,13 +1,7 @@
-class_name StateBase extends Node
-
-@export var ans:AnimatedSprite2D
-@export var an:AnimationPlayer
-
-var state_machine: StateMachine
+extends StateBase
 
 ## 进入状态
 func enter() -> void:
-	#printt(Engine.get_physics_frames(),self.name)
 	pass
 
 ## 退出状态

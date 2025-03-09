@@ -1,17 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://3di5coilkojd"]
+[gd_scene load_steps=18 format=3 uid="uid://3di5coilkojd"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_ps54g"]
+[ext_resource type="Script" uid="uid://b54krg8nm48oh" path="res://scenes/player/player.gd" id="1_ps54g"]
 [ext_resource type="Resource" uid="uid://dyxhmnxjypq1f" path="res://scripts/res/player_res.tres" id="2_4y5x6"]
 [ext_resource type="Texture2D" uid="uid://ducc3j1w8f4bi" path="res://scenes/player/art/IDLE.png" id="3_ylhtf"]
-[ext_resource type="Script" path="res://scenes/player/about_states/walk.gd" id="6_7qfa5"]
-[ext_resource type="Script" path="res://scripts/state_machine/StateMachine.gd" id="6_npdeg"]
-[ext_resource type="Script" path="res://scenes/player/about_states/jump.gd" id="7_lrh7r"]
-[ext_resource type="Script" path="res://scenes/player/about_states/idle.gd" id="7_m3sv8"]
-[ext_resource type="Script" path="res://scenes/player/about_states/atk.gd" id="8_lqdyv"]
-[ext_resource type="Script" path="res://scenes/player/slide.gd" id="9_y0ye4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr0m6"]
-size = Vector2(44, 44.5)
+[ext_resource type="Script" uid="uid://cwt8pi6gqgi4s" path="res://scenes/player/hit_box.gd" id="4_je7p5"]
+[ext_resource type="Script" uid="uid://cbs0yvmf4kkd8" path="res://scenes/player/about_states/walk.gd" id="6_7qfa5"]
+[ext_resource type="Script" uid="uid://cwnpv1ts2a4ec" path="res://scripts/state_machine/StateMachine.gd" id="6_npdeg"]
+[ext_resource type="Script" uid="uid://vihlj06it4ff" path="res://scenes/player/about_states/jump.gd" id="7_lrh7r"]
+[ext_resource type="Script" uid="uid://bgavbukb8dqwt" path="res://scenes/player/about_states/idle.gd" id="7_m3sv8"]
+[ext_resource type="Script" uid="uid://dv24l1hgab8cs" path="res://scenes/player/about_states/atk.gd" id="8_lqdyv"]
+[ext_resource type="Script" uid="uid://c2dqiu1r1xqgq" path="res://scenes/player/slide.gd" id="9_y0ye4"]
+[ext_resource type="Script" uid="uid://jo80fst8vopp" path="res://scenes/player/right_slide.gd" id="10_5s3h5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0hwr"]
 radius = 25.0
@@ -22,7 +21,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HandleFlip/HitBox/CollisionShape2D:disabled")
+tracks/0/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -31,6 +30,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-14, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_k4pov"]
 resource_name = "atk"
@@ -38,7 +73,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HandleFlip/HitBox/CollisionShape2D:disabled")
+tracks/0/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,11 +82,153 @@ tracks/0/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0196078, 0.0235294, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u6kde"]
+resource_name = "down_atk"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-14, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.027451, 0.0509804, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dusdy"]
+resource_name = "up_atk"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, -39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandleFlip/HitBox/CollisionPolygon2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0313726, 0.0196078, 1, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4unro"]
 _data = {
-"RESET": SubResource("Animation_tgr2a"),
-"atk": SubResource("Animation_k4pov")
+&"RESET": SubResource("Animation_tgr2a"),
+&"atk": SubResource("Animation_k4pov"),
+&"down_atk": SubResource("Animation_u6kde"),
+&"up_atk": SubResource("Animation_dusdy")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -75,11 +252,14 @@ position = Vector2(1, -17)
 remote_path = NodePath("../../CollisionShape2D")
 
 [node name="HitBox" type="Area2D" parent="HandleFlip"]
+collision_layer = 0
+collision_mask = 12
+script = ExtResource("4_je7p5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleFlip/HitBox"]
-position = Vector2(51, -19)
-shape = SubResource("RectangleShape2D_tr0m6")
-debug_color = Color(0.493886, 0.520239, 0.710244, 0.42)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HandleFlip/HitBox"]
+position = Vector2(-14, 0)
+rotation = 1.5708
+polygon = PackedVector2Array(27.9998, -57.0001, 28.0001, 26.9999, 91.0001, 25.9997, 103, 10, 103, -36.9996, 93.0002, -53.9997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -17)
@@ -87,11 +267,12 @@ shape = SubResource("CapsuleShape2D_y0hwr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_4unro")
+&"": SubResource("AnimationLibrary_4unro")
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
+limit_bottom = 1080
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("6_npdeg")
@@ -114,8 +295,13 @@ script = ExtResource("8_lqdyv")
 res = ExtResource("2_4y5x6")
 an = NodePath("../../AnimationPlayer")
 
-[node name="Slide" type="Node" parent="StateMachine"]
+[node name="LeftWallClimb" type="Node" parent="StateMachine"]
 script = ExtResource("9_y0ye4")
+res = ExtResource("2_4y5x6")
+
+[node name="RightWallClimb" type="Node" parent="StateMachine"]
+script = ExtResource("10_5s3h5")
+res = ExtResource("2_4y5x6")
 
 [node name="Casts" type="Node2D" parent="."]
 position = Vector2(0, 10)
@@ -130,4 +316,4 @@ unique_name_in_owner = true
 position = Vector2(-1, -28)
 target_position = Vector2(-27, 0)
 
-[connection signal="to_jump" from="StateMachine/Slide" to="StateMachine/Jump" method="_on_slide_to_jump"]
+[connection signal="body_entered" from="HandleFlip/HitBox" to="HandleFlip/HitBox" method="_on_body_entered"]

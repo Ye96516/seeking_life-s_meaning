@@ -4,7 +4,7 @@ extends StateBase
 
 func enter():
 	super()
-	
+	owner.velocity.x=0
 	pass
 
 func exit() -> void:
@@ -24,6 +24,6 @@ func process_update(_delta: float) -> void:
 
 func physical_process_update(delta: float) -> void:
 	if not owner.is_on_floor():
-		owner.velocity += owner.get_gravity() * delta
+		owner.velocity.y += owner.get_gravity().y * delta
 	owner.velocity.x=move_toward(owner.velocity.x,0,delta)
 	pass

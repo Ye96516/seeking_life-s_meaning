@@ -1,0 +1,162 @@
+[gd_scene load_steps=25 format=3 uid="uid://ipqbtt7vg05x"]
+
+[ext_resource type="Script" uid="uid://brhiadwjwvdgo" path="res://scenes/levels/a_level1/a_level1.gd" id="1_kuye4"]
+[ext_resource type="Texture2D" uid="uid://cfwcgqrwy5pf5" path="res://art/v1.png" id="2_m2blp"]
+[ext_resource type="Texture2D" uid="uid://dtd35sjkfoas0" path="res://art/v2.png" id="3_lkeqs"]
+[ext_resource type="Texture2D" uid="uid://bb3abpdliymvr" path="res://art/v3.png" id="4_ldqqa"]
+[ext_resource type="Texture2D" uid="uid://bdmeanwnkbcgu" path="res://art/v4.png" id="5_st76l"]
+[ext_resource type="Texture2D" uid="uid://bpibnhtuaptkx" path="res://art/v5.png" id="6_1b4m1"]
+[ext_resource type="Texture2D" uid="uid://cq1runiv0xqsd" path="res://art/v6.png" id="7_srjsy"]
+[ext_resource type="Texture2D" uid="uid://cde2yrg8stnhk" path="res://art/v7.png" id="8_mlah3"]
+[ext_resource type="Texture2D" uid="uid://jxst6fk2qmy2" path="res://art/v8.png" id="9_mtfmt"]
+[ext_resource type="PackedScene" uid="uid://3di5coilkojd" path="res://scenes/player/player.tscn" id="10_5b360"]
+[ext_resource type="Shader" uid="uid://bhfrlaf57de3k" path="res://data/shaders/高斯模糊.gdshader" id="11_lkeqs"]
+[ext_resource type="Texture2D" uid="uid://b7ssq7i8bqxfw" path="res://art/leaf.png" id="12_ldqqa"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_57ll5"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6sga3"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3p4o7"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w4mtr"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xaiog"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uokud"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldqqa"]
+shader = ExtResource("11_lkeqs")
+shader_parameter/blur_intensity = 1.31
+
+[sub_resource type="TileSet" id="TileSet_jpb0a"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_63840"]
+
+[sub_resource type="Gradient" id="Gradient_st76l"]
+colors = PackedColorArray(0.4, 1, 0.635294, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1b4m1"]
+gradient = SubResource("Gradient_st76l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_srjsy"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1260, 20, 1)
+direction = Vector3(2, 0, 0)
+spread = 0.0
+initial_velocity_max = 256.92
+gravity = Vector3(0, 98, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 73.09
+scale_min = 0.2
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_1b4m1")
+
+[node name="ALevel1" type="Node2D"]
+script = ExtResource("1_kuye4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"aa": SubResource("AnimationLibrary_57ll5"),
+&"bb": SubResource("AnimationLibrary_6sga3"),
+&"cc": SubResource("AnimationLibrary_3p4o7"),
+&"dd": SubResource("AnimationLibrary_w4mtr"),
+&"ee": SubResource("AnimationLibrary_xaiog"),
+&"ff": SubResource("AnimationLibrary_uokud")
+}
+
+[node name="Parallax" type="Node2D" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1920, 0)
+
+[node name="V1" type="Sprite2D" parent="Parallax/Parallax2D"]
+texture = ExtResource("2_m2blp")
+offset = Vector2(960, 540)
+
+[node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.25, 0.25)
+repeat_size = Vector2(1920, 0)
+
+[node name="V2" type="Sprite2D" parent="Parallax/Parallax2D2"]
+texture = ExtResource("3_lkeqs")
+offset = Vector2(960, 540)
+
+[node name="Parallax2D3" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1920, 0)
+
+[node name="V3" type="Sprite2D" parent="Parallax/Parallax2D3"]
+texture = ExtResource("4_ldqqa")
+offset = Vector2(960, 540)
+
+[node name="Parallax2D4" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.35, 0.35)
+repeat_size = Vector2(1920, 0)
+
+[node name="V4" type="Sprite2D" parent="Parallax/Parallax2D4"]
+texture = ExtResource("5_st76l")
+offset = Vector2(960, 540)
+
+[node name="ColorRect" type="ColorRect" parent="Parallax"]
+visible = false
+material = SubResource("ShaderMaterial_ldqqa")
+offset_right = 2630.0
+offset_bottom = 1047.0
+
+[node name="Parallax2D5" type="Parallax2D" parent="Parallax"]
+visible = false
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1920, 0)
+
+[node name="V5" type="Sprite2D" parent="Parallax/Parallax2D5"]
+texture = ExtResource("6_1b4m1")
+offset = Vector2(960, 540)
+
+[node name="Parallax2D6" type="Parallax2D" parent="Parallax"]
+visible = false
+scroll_scale = Vector2(0.55, 0.55)
+repeat_size = Vector2(1920, 0)
+
+[node name="V6" type="Sprite2D" parent="Parallax/Parallax2D6"]
+texture = ExtResource("7_srjsy")
+offset = Vector2(960, 540)
+
+[node name="Parallax2D7" type="Parallax2D" parent="Parallax"]
+visible = false
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(1920, 0)
+
+[node name="V7" type="Sprite2D" parent="Parallax/Parallax2D7"]
+texture = ExtResource("8_mlah3")
+offset = Vector2(960, 540)
+
+[node name="Parallax2D8" type="Parallax2D" parent="Parallax"]
+visible = false
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(1920, 0)
+
+[node name="V8" type="Sprite2D" parent="Parallax/Parallax2D8"]
+texture = ExtResource("9_mtfmt")
+offset = Vector2(960, 540)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_jpb0a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(601, 1072)
+shape = SubResource("WorldBoundaryShape2D_63840")
+
+[node name="Player" parent="." instance=ExtResource("10_5b360")]
+position = Vector2(715, 713)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(668, 7)
+amount = 100
+texture = ExtResource("12_ldqqa")
+lifetime = 4.3
+process_material = SubResource("ParticleProcessMaterial_srjsy")

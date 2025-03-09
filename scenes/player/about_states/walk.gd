@@ -24,17 +24,18 @@ func process_update(_delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and owner.jump_times<2:
 		state_machine.change_state("Jump")
 	#walk切slide
-	if left_cast.is_colliding():
-		var collider:=left_cast.get_collider()
-		state_machine.change_state("Slide")
-	if right_cast.is_colliding():
-		var collider:=right_cast.get_collider()
-		state_machine.change_state("Slide")
+	if not owner.is_on_floor() :
+		if left_cast.is_colliding() and is_equal_approx(owner.dir,-1.0):
+			var collider:=left_cast.get_collider()
+			state_machine.change_state("LeftWallClimb")
+		if right_cast.is_colliding() and is_equal_approx(owner.dir,1.0):
+			var collider:=right_cast.get_collider()
+			state_machine.change_state("RightWallClimb")
 	pass
 
 func physical_process_update(delta: float) -> void:
 	if not owner.is_on_floor():
-		owner.velocity += owner.get_gravity() * delta
+		owner.velocity.y += owner.get_gravity().y * delta
 	move(delta)
 
 func move(delta:float):

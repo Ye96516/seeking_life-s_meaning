@@ -35,7 +35,7 @@ func show_all_content():
 func show_certain_content(key:String):
 	_init_file()
 	if key in data.archives_file:
-		print(key+" : "+"%d"%data.archives_file[key])
+		print(key+" : "+data.archives_file[key])
 	else:
 		printerr("键<"+key+">不存在")
 
